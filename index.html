@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页码跳转模板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* box是父盒子，给box居中里面的元素全部会居中 */
+        .box {
+            text-align: center;
+        }
+
+        .box a {
+            /* 转换为行内块元素 */
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            /* 数字在小盒子里水平居中 */
+            text-align: center;
+            /* 数字在小盒子里垂直居中 */
+            line-height: 36px;
+            /* 清除链接下划线 */
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .box .prev,
+        .box .next {
+            width: 85px;
+        }
+
+        .box .current,
+        .box .elp {
+            background-color: #fff;
+            /* 把选中的那一页和装省略号的小盒子的边框清除 */
+            border: none;
+        }
+
+        .box input {
+            height: 36px;
+            width: 45px;
+            border: 1px solid #ccc;
+            /* 点击文本框后不显示发光边框 */
+            outline: none;
+        }
+
+        .box button {
+            width: 60px;
+            height: 36px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 因为页码之间都有个小距离，和行内块元素默认的一样，所以我们用行内块元素做页码跳转效率比较高 -->
+    <!-- box是装整个翻页模板的大盒子 -->
+    <div class="box">
+        <a href="#" class="prev">&lt;&lt;上一页</a>
+        <!-- current为选中页码 -->
+        <a href="#" class="current">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <!-- elp为省略号所在的小盒子 -->
+        <a href="#" class="elp">...</a>
+        <a href="#" class="next">下一页&gt;&gt;</a>
+        &nbsp;
+        到第
+        <input type="text">
+        页
+        &nbsp;
+        <button>确定</button>
+    </div>
+</body>
+
+</html>
